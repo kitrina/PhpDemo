@@ -245,6 +245,13 @@ class StudentController extends Controller
 
     public function section1()
     {
-        return view('student.section1');
+
+        $name = 'sean';
+        $arr = ['sean', 'imooc'];
+
+        return view('student.section1', [
+            'name' => $name,
+            'arr' => $arr,
+        ]);
     }
 }
