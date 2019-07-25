@@ -15,40 +15,63 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/get-demo', function () {
-    getParams();
+//基础路由
+Route::get('/basic1', function () {
+    return 'hello World';
 });
 
-Route::post('/post-demo', function () {
-    postParams();
+//基础路由
+Route::post('/basic2', function () {
+    return 'Basic2';
 });
 
-Route::post('/post-json', function () {
-    postJson();
+//多请求路由
+Route::match(['get', 'post'], 'multy1', function () {
+    return 'multy1';
 });
 
-function getParams()
-{
-    $id = $_GET['id'];
-    $name = $_GET['name'];
+//多请求路由，响应所以请求
+Route::any('multy2', function () {
+    return 'multy2';
+});
 
-    echo $id . ' ' . $name;
-}
+//路由参数
+//Route::get('user/{id}', function ($id) {
+//    return 'User-id-' . $id;
+//});
+//
+//Route::get('user/{name?}', function ($name = null) {
+//    return 'User-name-' . $name;
+//});
 
+//Route::get('user/{name?}', function ($name = 'sean') {
+//    return 'User-name-' . $name;
+//});
 
-function postParams() {
-    $first = $_GET['id'];
-    $second = $_GET['name'];
+//Route::get('user/{name?}', function ($name = 'sean') {
+//    return 'User-name-' . $name;
+//})->where('name', '[A-Za-z]+');
 
-    echo $first . ' ' . $second;
-}
+//Route::get('user/{name?}', function ($id, $name = 'sean') {
+//    return 'User-id-' . $id . 'User-name-' . $name;
+//})->where(['id' => '[0-9]+', 'name' => '[A-Za-z]+']);
 
-function postJson() {
-    $re = file_get_contents("php://input");
-    $reArr = json_decode($re, true);
+//路由别名
+//Route::get('/user/center', ['as' => 'center', function() {
+//    return route('center');
+//}]);
 
-    $first = $reArr['id'];
-    $second = $reArr['name'];
+//路由群组
+Route::group(['prefix' => 'member'], function () {
+    Route::get('/user/center', ['as' => 'center', function() {
+        return route('center');
+    }]);
+    Route::any('multy2', function () {
+        return 'member-multy2';
+    });
+});
 
-    echo $first . ' ' . $second;
-}
+//在路由中输出视图
+Route::get('/view', function () {
+    return view('welcome');
+});
