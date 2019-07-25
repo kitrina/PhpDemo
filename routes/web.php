@@ -16,24 +16,24 @@ Route::get('/', function () {
 });
 
 //基础路由
-Route::get('/basic1', function () {
-    return 'hello World';
-});
+//Route::get('/basic1', function () {
+//    return 'hello World';
+//});
 
 //基础路由
-Route::post('/basic2', function () {
-    return 'Basic2';
-});
+//Route::post('/basic2', function () {
+//    return 'Basic2';
+//});
 
 //多请求路由
-Route::match(['get', 'post'], 'multy1', function () {
-    return 'multy1';
-});
+//Route::match(['get', 'post'], 'multy1', function () {
+//    return 'multy1';
+//});
 
 //多请求路由，响应所以请求
-Route::any('multy2', function () {
-    return 'multy2';
-});
+//Route::any('multy2', function () {
+//    return 'multy2';
+//});
 
 //路由参数
 //Route::get('user/{id}', function ($id) {
@@ -62,16 +62,37 @@ Route::any('multy2', function () {
 //}]);
 
 //路由群组
-Route::group(['prefix' => 'member'], function () {
-    Route::get('/user/center', ['as' => 'center', function() {
-        return route('center');
-    }]);
-    Route::any('multy2', function () {
-        return 'member-multy2';
-    });
-});
+//Route::group(['prefix' => 'member'], function () {
+//    Route::get('/user/center', ['as' => 'center', function() {
+//        return route('center');
+//    }]);
+//    Route::any('multy2', function () {
+//        return 'member-multy2';
+//    });
+//});
 
 //在路由中输出视图
-Route::get('/view', function () {
-    return view('welcome');
-});
+//Route::get('/view', function () {
+//    return view('welcome');
+//});
+
+
+//路由控制器关联
+//Route::get('/member/info', 'MemberController@info');
+
+//Route::get('/member/info', ['uses' => 'MemberController@info']);
+
+//Route::post('/member/info', ['uses' => 'MemberController@info']);
+
+//Route::any('/member/info', ['uses' => 'MemberController@info']);
+
+//Route::any('/member/info', [
+//    'uses' => 'MemberController@info',
+//    'as' => 'memberinfo'
+//]);
+
+//Route::any('/member/(id)', ['uses' => 'MemberController@info'])
+//-where('id', '[0-9]+');
+
+//5.2废弃
+//Route::controller('member', 'MemberController');
