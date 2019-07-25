@@ -151,4 +151,95 @@ class StudentController extends Controller
 
 
     }
+
+    public function orm1()
+    {
+        //all()
+//        $students = Sutdent::all();
+
+        //find()
+//        $student = Sutdent::find(1001);
+
+        //findOrFail()
+//        $student = Sutdent::findOrFail(1001);
+
+//        $students = Sutdent::get();
+//        $students = Sutdent::where('id', '>', '1001')
+//            ->orderBy('age', 'desc')
+//            ->first();
+
+//        echo '<pre>';
+//        Sutdent::chunk(2, function ($sutdents) {
+//           var_dump($sutdents);
+//        });
+
+        //聚合函数
+//        $num = Sutdent::count();
+        $max = Sutdent::where('id', '>', 1001)->max('age');
+        var_dump($max);
+    }
+
+    public function orm2()
+    {
+        //使用模型新增数据
+        $student = new Sutdent();
+//        $student->name == 'hello';
+//        $student->age == '18';
+//        $bool = $student->save();
+//        dd($bool);
+
+//        $student = Student::find(1001);
+//        echo date('Y-m-d H:i:s', $student->created_at);
+
+        //使用模型的create方法新增数据
+
+//        $student = Sutdent::create(
+//            ['name' => 'xiaofei', 'age' => '33']
+//        );
+//        dd($student);
+
+        //firstOrCreate()
+//        $student = Sutdent::firstOrCreate(
+//            ['name' => 'imoocss']
+//        );
+
+        //firstOrNew()
+        $student = Sutdent::firstOrNew(
+            ['name' => 'imocsss']
+        );
+        $bool = $student->sava();
+        dd($bool);
+    }
+
+    public function orm3()
+    {
+        //通过模板更新数据
+//        $student = Student::find(1021);
+//        $student->name = 'kitty';
+//        $bool = $student->sava();
+//        dd($bool);
+
+        $num = Sutdent::whert('id', '>', '1019')->update(
+            ['age' => 41]
+        );
+        var_dump($num);
+    }
+
+    public function orm4()
+    {
+        //通过模型删除
+//        $student = Sutdent::find(1021);
+//        $bool = $student->delete();
+//        var_dump($bool);
+
+        //通过主键删除
+//        $num = Sutdent::destroy(1020);
+//        $num = Sutdent::destroy(1018, 1019);
+//        $num = Sutdent::destroy([1016, 1017]);
+//        var_dump($num);
+
+        //删除指定条件的数据
+        $num = Sutdent::where('id', '>', 1004)->delete();
+        var_dump($num);
+    }
 }
