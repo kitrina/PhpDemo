@@ -109,10 +109,12 @@ Route::get('/', function () {
 //
 //Route::any('/query5', ['uses' => 'StudentController@query5']);
 
-Route::any('/orm1', ['uses' => 'StudentController@orm1']);
+//Route::any('/orm1', ['uses' => 'StudentController@orm1']);
+//
+//Route::any('/orm2', ['uses' => 'StudentController@orm2']);
+//
+//Route::any('/orm3', ['uses' => 'StudentController@orm3']);
+//
+//Route::any('/orm4', ['uses' => 'StudentController@orm4']);
 
-Route::any('/orm2', ['uses' => 'StudentController@orm2']);
-
-Route::any('/orm3', ['uses' => 'StudentController@orm3']);
-
-Route::any('/orm4', ['uses' => 'StudentController@orm4']);
+Route::any('/section1', ['uses' => 'StudentController@section1']);

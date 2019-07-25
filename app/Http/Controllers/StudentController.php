@@ -242,4 +242,9 @@ class StudentController extends Controller
         $num = Sutdent::where('id', '>', 1004)->delete();
         var_dump($num);
     }
+
+    public function section1()
+    {
+        return view('student.section1');
+    }
 }
