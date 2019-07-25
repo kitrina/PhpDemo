@@ -91,8 +91,8 @@ Route::get('/', function () {
 //    'as' => 'memberinfo'
 //]);
 
-//Route::any('/member/(id)', ['uses' => 'MemberController@info'])
-//-where('id', '[0-9]+');
+Route::any('/member/{id}', ['uses' => 'MemberController@info'])
+->where('id', '[0-9]+');
 
 //5.2废弃
 //Route::controller('member', 'MemberController');
