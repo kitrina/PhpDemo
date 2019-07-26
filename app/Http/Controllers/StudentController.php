@@ -355,8 +355,10 @@ class StudentController extends Controller
 
     public function session2(Request $request)
     {
+        return Session::get('message', '暂无信息');
+//        return 'session2';
 
-        echo Session::get('key-flash');
+//        echo Session::get('key-flash');
 
         // 获取session所有的数据
 //        $res  = Session::all();
@@ -371,5 +373,30 @@ class StudentController extends Controller
 //        $res  = Session::all();
 //        var_dump($res);
 
+    }
+
+    public function response()
+    {
+        // 3. 响应json
+//        $data = [
+//            'errCode' => 0,
+//            'errMsg' => 'success',
+//            'data' => 'sean',
+//        ];
+//        return response()->json($data);
+
+        // 4. 重定向
+//        return redirect('session2');
+//        return redirect('session2')->with('message', '我是快闪数据');
+
+        // action()
+//        return redirect()->action('StudentController@session2')
+//            ->with('message', '我是快闪数据');
+
+        // route()
+//        return redirect()->route('session2')
+//            ->with('message', '我是快闪数据');
+
+        return redirect()->back();
     }
 }
