@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Sutdent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class StudentController extends Controller
 {
@@ -295,5 +296,80 @@ class StudentController extends Controller
 //        var_dump($res);
 
         echo $request->url();
+    }
+
+//    由于HTTP协定是无状态的（Stateless）的，所以session提供一种保存用户数据的方法
+//
+//    Laravel支持了多种session后端驱动，并提供清楚、统一的 API。也内置支持如Memcached、Redis和数据库的后端驱动。默认使用"file"的Session驱动。
+//
+//    session的配置文件配置在config/session.php中
+
+
+    public function session1(Request $request)
+    {
+        // 1. HTTP Request session()
+//        $request->session()->put('key1', 'value1');
+//        echo $request->session()->get('key1');
+
+        // 2. Session()
+//        session()->put('key2', 'value2');
+//        echo session()->get('key2');
+
+        // 3. Session
+        //存储数据到Session
+//        Session::put('key3', 'value3');
+
+        // 获取Session的值
+//        echo Session::get('key3');
+        //不存在则取默认值
+//        echo Session::get('key4', 'default');
+
+        // 已数组的形式存储数据
+//        Session::put(['key4' => 'value4']);
+
+        // 把数据放到Session的数组中
+//        Session::push('student', 'sean');
+//        Session::push('student', 'imooc');
+//        $res = Session::get('student', 'default');
+//        var_dump($res);
+
+        // 取出数据并删除
+//        $res = Session::pull('student', 'default');
+//        var_dump($res);
+
+        //取出所有的值
+//        $res  = Session::all();
+//        dd($res);
+
+        // 判断session中某个key是否存在
+//        if (Session::has('key11')) {
+//            $res  = Session::all();
+//            dd($res);
+//        } else {
+//            echo '你们老大不在';
+//        }
+
+        //暂存数据
+        Session::flash('key-flash', 'val-flash');
+    }
+
+    public function session2(Request $request)
+    {
+
+        echo Session::get('key-flash');
+
+        // 获取session所有的数据
+//        $res  = Session::all();
+//        var_dump($res);
+
+        // 删除session中指定的key的值
+//        Session::forget('key1');
+
+        // 清空所有session信息
+//        Session::flush();
+
+//        $res  = Session::all();
+//        var_dump($res);
+
     }
 }

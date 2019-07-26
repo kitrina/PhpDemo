@@ -123,3 +123,9 @@ Route::any('urlTest', ['as' => 'url', 'uses' => 'StudentController@urlTest']);
 
 
 Route::any('request1', ['uses' => 'StudentController@request1']);
+
+
+Route::group(['middleware' => ['web']], function() {
+    Route::any('session1', ['uses' => 'StudentController@session1']);
+    Route::any('session2', ['uses' => 'StudentController@session2']);
+});
