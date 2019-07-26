@@ -245,6 +245,8 @@ class StudentController extends Controller
 
     public function section1()
     {
+        $students = [];
+//        $students = Sutdent::get();
 
         $name = 'sean';
         $arr = ['sean', 'imooc'];
@@ -252,6 +254,12 @@ class StudentController extends Controller
         return view('student.section1', [
             'name' => $name,
             'arr' => $arr,
+            'students' => $students,
         ]);
+    }
+
+    public function urlTest()
+    {
+        return 'urlTest';
     }
 }

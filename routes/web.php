@@ -117,4 +117,6 @@ Route::get('/', function () {
 //
 //Route::any('/orm4', ['uses' => 'StudentController@orm4']);
 
-Route::any('/section1', ['uses' => 'StudentController@section1']);
+Route::any('section1', ['uses' => 'StudentController@section1']);
+
+Route::any('urlTest', ['as' => 'url', 'uses' => 'StudentController@urlTest']);
