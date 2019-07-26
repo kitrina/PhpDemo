@@ -399,4 +399,23 @@ class StudentController extends Controller
 
         return redirect()->back();
     }
+
+    // 活动的宣传页面
+    public function activity0()
+    {
+        return '活动快要开始啦，尽请期待';
+    }
+
+
+    // 活动的宣传页面
+    public function activity1()
+    {
+        return '活动进行中，谢谢您的参与1';
+    }
+
+    // 活动的宣传页面
+    public function activity2()
+    {
+        return '活动进行中，谢谢您的参与2';
+    }
 }
