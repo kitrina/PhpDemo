@@ -142,3 +142,9 @@ Route::group(['middleware' => ['activity']], function() {
     Route::any('activity1', ['uses' => 'StudentController@activity1']);
     Route::any('activity2', ['uses' => 'StudentController@activity2']);
 });
+
+//app接口测试
+Route::post('/app/test', ['uses' => 'AppController@test']);
+Route::get('/basic1', function () {
+    return 'hello World';
+});
