@@ -145,6 +145,9 @@ Route::group(['middleware' => ['activity']], function() {
 
 //app接口测试
 Route::post('/app/test', ['uses' => 'AppController@test']);
+Route::post('/app/test2', function () {
+    return 'data';
+});
 Route::get('/basic1', function () {
     return 'hello World';
 });
