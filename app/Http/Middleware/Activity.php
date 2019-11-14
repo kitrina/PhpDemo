@@ -8,7 +8,7 @@ class Activity
 {
 
     /*
-    // 前置
+    // 前置操作
     public function handle($request, Closure $next)
     {
         if (time() < strtotime('2019-07-05')) {
@@ -19,6 +19,7 @@ class Activity
     }
     */
 
+    // 后置操作
     public function handle($request, Closure $next)
     {
         $response = $next($request);
