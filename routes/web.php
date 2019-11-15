@@ -220,6 +220,32 @@ Route::group(['middleware' => ['activity']], function() {
     Route::any('activity2', ['uses' => 'StudentController@activity2']);
 });
 
+
+/*
+ * 文件系统
+ * Laravel 的文件系统是基于 Frank de Jonge 的 Flysystem 扩展包
+ * 提供了简单的接口，可以操作本地端空间、Amazon S3、Rackspace Cloud Storage
+ * 可以非常简单的切换不同保存方式，但仍使用相同的API操作，配置文件 /config/filesystems.php
+ */
+Route::any('upload', 'StudentController@upload');
+
+/*
+ * cache
+ * Laravel 为各种不同的缓存系统提供一致的 API，Laravel支持各种常见的后端缓存系统，如File、Memcached 和 Redis
+ * put()、add()、forever()、has()、get()、pull()、forget()
+ * 配置 config/cache.php，file缓存目录/storage/framework/cache/data
+ */
+Route::any('cache1', 'StudentController@cache1');
+Route::any('cache2', 'StudentController@cache2');
+
+/*
+ * 异常
+ * Debug模式，配置 config/app.php。进行本地开发时，应该配置APP_DEBUG环境变量为true，在上线环境，这个值应该永远为false
+ * HTTP异常，例如：可能是一个 "页面未找到" 错误（404），"认证失败错误"（401）亦或是程序出错造成的500错误
+ * 日志：Laravel日志工具基于强大的Monolog库，提供了single、daily、syslog 和 errorlog 日志模式，debug、info、notice、warning、error、critical 和 alert 七个错误级别，目录/storage/logs
+ */
+Route::any('error', 'StudentController@error');
+
 /*
  * app接口测试
  */

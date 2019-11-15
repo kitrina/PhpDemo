@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class StudentController extends Controller
@@ -443,5 +445,70 @@ class StudentController extends Controller
     public function activity2()
     {
         return '活动进行中，谢谢您的参与2';
+    }
+
+    /*
+     * upload
+     */
+    public function upload()
+    {
+        return 'upload';
+    }
+
+    /*
+     * cache
+     */
+    public function cache1()
+    {
+        // put()添加缓存
+        // Cache::put('key1', 'val1', 10);
+
+        // add()添加缓存，若key存在，添加失败
+        // $bool = Cache::add('key2', 'val2', 10);
+        // var_dump($bool);
+
+        // forever()永久保存对象到缓存中
+        // Cache::forever('key3', 'val3');
+
+
+        // has()判断一个key存不存在
+//        if (Cache::has('key1')) {
+//            $val = Cache::hsa('key1');
+//            var_dump($val);
+//        } else {
+//            echo 'No';
+//        }
+    }
+
+    public function cache2()
+    {
+        // get()
+        // $val = Cache::get('key3');
+
+        // pull()取出缓存并删除
+        // $val = Cache::pull('key3');
+        // var_dump($val);
+
+        // forget()从缓存中删除对象，删除成功返回true，否则返回false
+        $bool = Cache::forget('key1');
+        var_dump($bool);
+    }
+
+    public function error()
+    {
+        // $name = 'sean';
+        // var_dump($name);
+
+        // return view('student.error');
+
+        // $student = DB::table('student') 1001
+//        $student = null;
+//        if ($student == null) {
+//            abort('503');
+//        }
+
+//        Log::info('这是一个info级别的日志');
+//        Log::warning('这是一个warning级别的日志');
+//        Log::error('这是一个数组', ['name' => 'sean', 'age' => 18]);
     }
 }
