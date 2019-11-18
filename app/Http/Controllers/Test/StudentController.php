@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Test;
 
+use App\Http\Controllers\Controller;
 use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;

@@ -39,7 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        //博客项目路由
+        $this->mapBlogRoutes();
     }
 
     /**
@@ -69,5 +70,19 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "blog" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapBlogRoutes()
+    {
+        Route::prefix('blog')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/blog.php'));
     }
 }

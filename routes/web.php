@@ -93,29 +93,29 @@ Route::get('/', function () {
  * 3、关联控制器后，路由的特性怎么用
  */
 //路由控制器关联方法一
-//Route::get('/member/info', 'MemberController@info');
+//Route::get('/member/info', 'Test\MemberController@info');
 
 //路由控制器关联方法二
-//Route::get('/member/info', ['uses' => 'MemberController@info']);
+//Route::get('/member/info', ['uses' => 'Test\MemberController@info']);
 
 //post请求使用控制器
-//Route::post('/member/info', ['uses' => 'MemberController@info']);
+//Route::post('/member/info', ['uses' => 'Test\MemberController@info']);
 
 //any请求使用控制器
-//Route::any('/member/info', ['uses' => 'MemberController@info']);
+//Route::any('/member/info', ['uses' => 'Test\MemberController@info']);
 
 //控制器和别名使用
 //Route::any('/member/info', [
-//    'uses' => 'MemberController@info',
+//    'uses' => 'Test\MemberController@info',
 //    'as' => 'memberinfo'
 //]);
 
 //控制器参数绑定
-//Route::any('/member/{id}', ['uses' => 'MemberController@info'])
+//Route::any('/member/{id}', ['uses' => 'Test\MemberController@info'])
 //->where('id', '[0-9]+');
 
 //5.2废弃
-//Route::controller('member', 'MemberController');
+//Route::controller('member', 'Test\MemberController');
 
 /*
  * 视图
@@ -142,7 +142,7 @@ Route::get('/', function () {
 //MAMP 数据库后台 http://localhost:8888/phpmyadmin
 //laravel数据库设置文件/config/database.php 对应 env 文件参数
 //2、使用DB facade实现CURD
-//Route::any('/test1', ['uses' => 'StudentController@test1']);
+//Route::any('/test1', ['uses' => 'Test\StudentController@test1']);
 
 /*
  * 使用查询构造器操作数据库
@@ -151,15 +151,15 @@ Route::get('/', function () {
  * 基本可以满足所有的数据库操作，而且在所有支持的数据库系统上都可以执行
  */
 //1、使用查询构造器新增数据
-//Route::any('/query1', ['uses' => 'StudentController@query1']);
+//Route::any('/query1', ['uses' => 'Test\StudentController@query1']);
 //2、使用查询构造器修改数据
-//Route::any('/query2', ['uses' => 'StudentController@query2']);
+//Route::any('/query2', ['uses' => 'Test\StudentController@query2']);
 //3、使用查询构造器删除数据
-//Route::any('/query3', ['uses' => 'StudentController@query3']);
+//Route::any('/query3', ['uses' => 'Test\StudentController@query3']);
 //4、使用查询构造器查询数据
-//Route::any('/query4', ['uses' => 'StudentController@query4']);
+//Route::any('/query4', ['uses' => 'Test\StudentController@query4']);
 //5、使用查询构造器的聚合函数
-//Route::any('/query5', ['uses' => 'StudentController@query5']);
+//Route::any('/query5', ['uses' => 'Test\StudentController@query5']);
 
 /*
  * 使用ORM操作数据库
@@ -167,13 +167,13 @@ Route::get('/', function () {
  * 每个数据表都有一个与之对应的"模型（Model）" 用于和数据表交互
  */
 //1、Eloquent ORM简介、模型的建立及查询数据
-//Route::any('/orm1', ['uses' => 'StudentController@orm1']);
+//Route::any('/orm1', ['uses' => 'Test\StudentController@orm1']);
 //2、Eloquent ORM中新增数据、自定义时间戳及批量赋值的使用
-//Route::any('/orm2', ['uses' => 'StudentController@orm2']);
+//Route::any('/orm2', ['uses' => 'Test\StudentController@orm2']);
 //3、使用Eloquent ORM修改数据
-//Route::any('/orm3', ['uses' => 'StudentController@orm3']);
+//Route::any('/orm3', ['uses' => 'Test\StudentController@orm3']);
 //4、使用Eloquent ORM删除数据
-//Route::any('/orm4', ['uses' => 'StudentController@orm4']);
+//Route::any('/orm4', ['uses' => 'Test\StudentController@orm4']);
 
 /*
  * Blade模板引擎
@@ -184,9 +184,9 @@ Route::get('/', function () {
 //1、模板继承（section、yield、extends、parent）
 //2、基础语法及include的使用
 //3、流程控制（if、unless、for、foreach）
-Route::any('section1', ['uses' => 'StudentController@section1']);
+Route::any('section1', ['uses' => 'Test\StudentController@section1']);
 //4、模板中的URL（url()、action()、route()）
-Route::any('urlTest', ['as' => 'url', 'uses' => 'StudentController@urlTest']);
+Route::any('urlTest', ['as' => 'url', 'uses' => 'Test\StudentController@urlTest']);
 
 /*
  * Controller 之 Request、Session、Response、Middleware
@@ -194,30 +194,30 @@ Route::any('urlTest', ['as' => 'url', 'uses' => 'StudentController@urlTest']);
 //1、Request
 //Laravel中的请求使用的是symfony/http-foundation组件
 //请求里面存放了 $_GET、$_POST、$_COOKIE、$_FILES、$_SERVER等数据
-Route::any('request1', ['uses' => 'StudentController@request1']);
+Route::any('request1', ['uses' => 'Test\StudentController@request1']);
 
 //2、Session
 //由于HTTP协定是无状态的（Stateless）的，所以session提供一种保存用户数据的方法
 //Laravel支持了多种session后端驱动，并提供清楚、统一的 API。也内置支持如Memcached、Redis和数据库的后端驱动。默认使用"file"的Session驱动。
 //session的配置文件配置在config/session.php中
 Route::group(['middleware' => ['web']], function() {
-    Route::any('session1', ['uses' => 'StudentController@session1']);
+    Route::any('session1', ['uses' => 'Test\StudentController@session1']);
     Route::any('session2', [
         'as' => 'session2',
-        'uses' => 'StudentController@session2'
+        'uses' => 'Test\StudentController@session2'
     ]);
     //3、Response
-    Route::any('response', ['uses' => 'StudentController@response']);
+    Route::any('response', ['uses' => 'Test\StudentController@response']);
 });
 
 //4、Middleware
 //Laravel中间件提供一个方便的机制来过滤进入应用程序的 HTTP 请求
 // 宣传页面
-Route::any('activity0', ['uses' => 'StudentController@activity0']);
+Route::any('activity0', ['uses' => 'Test\StudentController@activity0']);
 // 活动页面
 Route::group(['middleware' => ['activity']], function() {
-    Route::any('activity1', ['uses' => 'StudentController@activity1']);
-    Route::any('activity2', ['uses' => 'StudentController@activity2']);
+    Route::any('activity1', ['uses' => 'Test\StudentController@activity1']);
+    Route::any('activity2', ['uses' => 'Test\StudentController@activity2']);
 });
 
 
@@ -227,7 +227,7 @@ Route::group(['middleware' => ['activity']], function() {
  * 提供了简单的接口，可以操作本地端空间、Amazon S3、Rackspace Cloud Storage
  * 可以非常简单的切换不同保存方式，但仍使用相同的API操作，配置文件 /config/filesystems.php
  */
-Route::any('upload', 'StudentController@upload');
+Route::any('upload', 'Test\StudentController@upload');
 
 /*
  * cache
@@ -235,8 +235,8 @@ Route::any('upload', 'StudentController@upload');
  * put()、add()、forever()、has()、get()、pull()、forget()
  * 配置 config/cache.php，file缓存目录/storage/framework/cache/data
  */
-Route::any('cache1', 'StudentController@cache1');
-Route::any('cache2', 'StudentController@cache2');
+Route::any('cache1', 'Test\StudentController@cache1');
+Route::any('cache2', 'Test\StudentController@cache2');
 
 /*
  * 异常
@@ -244,15 +244,4 @@ Route::any('cache2', 'StudentController@cache2');
  * HTTP异常，例如：可能是一个 "页面未找到" 错误（404），"认证失败错误"（401）亦或是程序出错造成的500错误
  * 日志：Laravel日志工具基于强大的Monolog库，提供了single、daily、syslog 和 errorlog 日志模式，debug、info、notice、warning、error、critical 和 alert 七个错误级别，目录/storage/logs
  */
-Route::any('error', 'StudentController@error');
-
-/*
- * app接口测试
- */
-Route::post('/app/test', ['uses' => 'AppController@test']);
-Route::post('/app/test2', function () {
-    return 'data';
-});
-Route::get('/basic1', function () {
-    return 'hello World';
-});
+Route::any('error', 'Test\StudentController@error');

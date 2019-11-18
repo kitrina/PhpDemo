@@ -79,7 +79,7 @@
     <p>{{ route('url') }}</p>
     <a href="{{ url('urlTest') }}">url()</a>
     <br>
-    <a href="{{ action('StudentController@urlTest') }}">action()</a>
+    <a href="{{ action('Test\StudentController@urlTest') }}">action()</a>
     <br>
     <a href="{{ route('url') }}">route()</a>
 @stop

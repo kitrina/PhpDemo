@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\App;
 
 use App\common\Auth\JwtAuth;
 use App\common\Err\ApiErrDesc;

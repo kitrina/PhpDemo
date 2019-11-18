@@ -75,7 +75,8 @@ function postJson()
     echo $firstParam . ' ' . $secondParam;
 }
 
-Route::get('/user/login', 'JwtLoginController@login');
+Route::get('/user/login', 'App\JwtLoginController@login');
 Route::middleware(['jwt_auth'])->group(function () {
-    Route::get('/user/info', 'UserController@info');
+    Route::get('/user/info', 'App\UserController@info');
+    Route::get('/user/info', 'App\UserController@infoWithCache');
 });
